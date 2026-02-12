@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 20% 90%;
+    --secondary-foreground: 215 25% 15%;
+
+    --muted: 210 15% 94%;
+    --muted-foreground: 215 15% 45%;
+
+    --accent: 188 95% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 15% 88%;
+    --input: 210 15% 90%;
+    --ring: 188 95% 45%;
+
+    --radius: 0.5rem;
+
+    /* Navy & Cyan theme */
+    --tech-gradient-start: 210 100% 50%;
+    --tech-gradient-end: 188 95% 45%;
+    --glow-primary: 188 95% 45%;
+    --glow-secondary: 210 100% 50%;
+    --success: 152 60% 40%;
+    --success-foreground: 0 0% 100%;
+    --cyan-primary: 188 95% 45%;
+    --cyan-foreground: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 215 30% 8%;
+    --foreground: 188 85% 70%;
+
+    --card: 215 25% 12%;
+    --card-foreground: 188 85% 85%;
+
+    --popover: 215 25% 12%;
+    --popover-foreground: 188 85% 85%;
+
+    --primary: 188 95% 45%;
+    --primary-foreground: 215 30% 10%;
+
+    --secondary: 215 20% 18%;
+    --secondary-foreground: 188 85% 85%;
+
+    --muted: 215 20% 15%;
+    --muted-foreground: 210 15% 60%;
+
+    --accent: 210 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 20%;
+    --input: 215 20% 18%;
+    --ring: 188 95% 45%;
+
+    /* Enhanced glow for dark mode */
+    --glow-primary: 188 95% 45%;
+    --glow-secondary: 210 100% 50%;
+    --success: 152 60% 45%;
+    --success-foreground: 0 0% 100%;
+    --cyan-primary: 188 95% 50%;
+    --cyan-foreground: 215 30% 10%;
+  }
+}
+
+@keyframes card-shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+  100% { transform: translateX(0); }
+}
+
+.animate-shake {
+  animation: card-shake 0.45s ease-in-out;
+}
+
+/* Ripple */
+.ripple {
+  position: absolute;
+  border-radius: 9999px;
+  transform: scale(0);
+  animation: ripple-effect 600ms ease-out;
+  background: rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+}
+
+@keyframes ripple-effect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+
+@layer utilities {
+  .gradient-tech {
+    background: linear-gradient(135deg, hsl(var(--tech-gradient-start)), hsl(var(--tech-gradient-end)));
+  }
+  
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.3);
+  }
+  
+  .glow-secondary {
+    box-shadow: 0 0 20px hsl(var(--glow-secondary) / 0.3);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--cyan-primary)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-alt {
+    background: linear-gradient(135deg, hsl(var(--cyan-primary)), hsl(var(--accent)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

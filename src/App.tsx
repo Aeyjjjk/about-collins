@@ -11,7 +11,7 @@ import ProjectDetail from "./pages/ProjectDetail";
 import NotFound from "./pages/NotFound";
 import { Blog } from "./components/Blog";
 import { BlogPost } from "./pages/blog/BlogPost";
-///was here 10-18-2026, 19th
+///was here 10-18-2026, 19th, 20
 const queryClient = new QueryClient();
 
 const App = () => (
